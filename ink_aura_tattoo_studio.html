@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INK & AURA | High-End Tattoo Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#121212',
+                        darksurface: '#1a1a1a',
+                        gold: '#d4af37',
+                        goldhover: '#c5a059',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom dark moody glassmorphism styles */
+        .glass-card {
+            background: rgba(26, 26, 26, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .glass-nav {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gold-glow {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+    </style>
+</head>
+<body class="bg-charcoal text-gray-100 font-sans antialiased selection:bg-gold selection:text-charcoal min-h-screen">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold font-serif font-bold text-lg group-hover:bg-gold group-hover:text-charcoal transition-all">
+                    I&A
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif tracking-widest text-lg font-bold text-white">INK & AURA</span>
+                    <span class="text-[10px] tracking-widest text-gold uppercase">Fine Tattoo Artistry</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider uppercase text-gray-300">
+                <a href="#gallery" class="hover:text-gold transition-colors">Portfolio</a>
+                <a href="#artists" class="hover:text-gold transition-colors">Artists</a>
+                <a href="#booking" class="hover:text-gold transition-colors">Book Consult</a>
+                <a href="#aftercare" class="hover:text-gold transition-colors">Aftercare & FAQ</a>
+                <a href="#contact" class="hover:text-gold transition-colors">Studio</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#booking" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 border border-gold text-gold font-medium text-xs tracking-widest uppercase hover:bg-gold hover:text-charcoal transition-all duration-300 rounded-sm">
+                    Book Session
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-gold focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10 px-6 py-6 space-y-4">
+            <a href="#gallery" class="block text-sm font-medium tracking-wider uppercase text-gray-300 hover:text-gold">Portfolio</a>
+            <a href="#artists" class="block text-sm font-medium tracking-wider uppercase text-gray-300 hover:text-gold">Artists</a>
+            <a href="#booking" class="block text-sm font-medium tracking-wider uppercase text-gray-300 hover:text-gold">Book Consult</a>
+            <a href="#aftercare" class="block text-sm font-medium tracking-wider uppercase text-gray-300 hover:text-gold">Aftercare & FAQ</a>
+            <a href="#contact" class="block text-sm font-medium tracking-wider uppercase text-gray-300 hover:text-gold">Studio</a>
+            <a href="#booking" class="w-full text-center block py-3 border border-gold text-gold font-medium text-xs tracking-widest uppercase hover:bg-gold hover:text-charcoal transition-all">
+                Book Session
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Imagery overlay with dark moody gradient -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1598371839606-9185dcb8e123?q=80&w=1920&auto=format&fit=crop" alt="Tattoo Studio Atmosphere" class="w-full h-full object-cover filter brightness-[0.3] contrast-125 scale-105 animate-pulse duration-[10000ms]">
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center py-20">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/40 bg-gold/10 text-gold text-xs tracking-widest uppercase mb-6 backdrop-blur-sm">
+                <i class="fa-solid fa-sparkles text-xs"></i> Private Luxury Studio • By Appointment Only
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white tracking-tight mb-6 leading-none">
+                ELEVATED <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-200 to-gold gold-glow">INK ART</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-gray-400 text-base md:text-lg font-light tracking-wide mb-10">
+                Crafting bespoke, museum-grade body art in an intimate luxury sanctuary. Specializing in avant-garde blackwork, realism, and intricate fine line designs.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#booking" class="w-full sm:w-auto px-8 py-4 bg-gold text-charcoal font-semibold text-xs tracking-widest uppercase hover:bg-goldhover transition-all duration-300 shadow-xl shadow-gold/10 rounded-sm">
+                    Initialize Consultation
+                </a>
+                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-medium text-xs tracking-widest uppercase hover:border-gold hover:text-gold transition-all duration-300 rounded-sm">
+                    Explore Gallery
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 pt-12 border-t border-white/10 max-w-4xl mx-auto text-left">
+                <div>
+                    <div class="text-3xl font-serif font-bold text-white mb-1">12+</div>
+                    <div class="text-xs tracking-widest text-gray-400 uppercase">Master Resident Artists</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-serif font-bold text-gold mb-1">100%</div>
+                    <div class="text-xs tracking-widest text-gray-400 uppercase">Custom Design Only</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-serif font-bold text-white mb-1">4.9★</div>
+                    <div class="text-xs tracking-widest text-gray-400 uppercase">Client Satisfaction</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-serif font-bold text-gold mb-1">ISO</div>
+                    <div class="text-xs tracking-widest text-gray-400 uppercase">Hospital Grade Sterility</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Portfolio & Filterable Gallery Section -->
+    <section id="gallery" class="py-28 px-6 bg-[#0e0e0e] relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs tracking-widest text-gold uppercase block mb-3 font-semibold">Curated Masterpieces</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">PORTFOLIO & STYLES</h2>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button class="filter-btn px-5 py-2 text-xs tracking-wider uppercase border border-gold bg-gold text-charcoal font-medium transition-all rounded-sm" data-filter="all">All Styles</button>
+                    <button class="filter-btn px-5 py-2 text-xs tracking-wider uppercase border border-white/20 text-gray-300 hover:border-gold hover:text-gold transition-all rounded-sm" data-filter="realism">Realism</button>
+                    <button class="filter-btn px-5 py-2 text-xs tracking-wider uppercase border border-white/20 text-gray-300 hover:border-gold hover:text-gold transition-all rounded-sm" data-filter="blackwork">Blackwork</button>
+                    <button class="filter-btn px-5 py-2 text-xs tracking-wider uppercase border border-white/20 text-gray-300 hover:border-gold hover:text-gold transition-all rounded-sm" data-filter="fineline">Fine Line</button>
+                    <button class="filter-btn px-5 py-2 text-xs tracking-wider uppercase border border-white/20 text-gray-300 hover:border-gold hover:text-gold transition-all rounded-sm" data-filter="neotraditional">Neo-Traditional</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Item 1 -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm cursor-pointer glass-card aspect-[4/5]" data-category="realism" data-title="Portrait Surrealism" data-artist="Kaelen Voss" data-style="Realism">
+                    <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?q=80&w=800&auto=format&fit=crop" alt="Realism Tattoo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-gold uppercase tracking-widest mb-1">Realism • Kaelen Voss</span>
+                        <h3 class="text-2xl font-serif font-bold text-white">Chronos & Dust</h3>
+                        <p class="text-xs text-gray-300 mt-2">Click to inspect high-resolution details</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm cursor-pointer glass-card aspect-[4/5]" data-category="blackwork" data-title="Geometric Brutalism" data-artist="Sora Vance" data-style="Blackwork">
+                    <img src="https://images.unsplash.com/photo-1611501275017-9b65de00f12e?q=80&w=800&auto=format&fit=crop" alt="Blackwork Tattoo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-gold uppercase tracking-widest mb-1">Blackwork • Sora Vance</span>
+                        <h3 class="text-2xl font-serif font-bold text-white">Sacred Geometry Arm Sleeve</h3>
+                        <p class="text-xs text-gray-300 mt-2">Click to inspect high-resolution details</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm cursor-pointer glass-card aspect-[4/5]" data-category="fineline" data-title="Botanical Micro-Realism" data-artist="Elena Rostova" data-style="Fine Line">
+                    <img src="https://images.unsplash.com/photo-1590246814833-6721d0f57a34?q=80&w=800&auto=format&fit=crop" alt="Fine Line Tattoo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-gold uppercase tracking-widest mb-1">Fine Line • Elena Rostova</span>
+                        <h3 class="text-2xl font-serif font-bold text-white">Celestial Fern & Moon</h3>
+                        <p class="text-xs text-gray-300 mt-2">Click to inspect high-resolution details</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm cursor-pointer glass-card aspect-[4/5]" data-category="neotraditional" data-title="Vibrant Panther" data-artist="Jaxson Cole" data-style="Neo-Traditional">
+                    <img src="https://images.unsplash.com/photo-1598371839606-9185dcb8e123?q=80&w=800&auto=format&fit=crop" alt="Neo-Traditional Tattoo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-gold uppercase tracking-widest mb-1">Neo-Traditional • Jaxson Cole</span>
+                        <h3 class="text-2xl font-serif font-bold text-white">Midnight Panther</h3>
+                        <p class="text-xs text-gray-300 mt-2">Click to inspect high-resolution details</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm cursor-pointer glass-card aspect-[4/5]" data-category="blackwork" data-title="Dark Ornamental Back" data-artist="Sora Vance" data-style="Blackwork">
+                    <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?q=80&w=800&auto=format&fit=crop" alt="Blackwork Backpiece" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-gold uppercase tracking-widest mb-1">Blackwork • Sora Vance</span>
+                        <h3 class="text-2xl font-serif font-bold text-white">Gothic Spine Architecture</h3>
+                        <p class="text-xs text-gray-300 mt-2">Click to inspect high-resolution details</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm cursor-pointer glass-card aspect-[4/5]" data-category="realism" data-title="Wildlife Realism" data-artist="Kaelen Voss" data-style="Realism">
+                    <img src="https://images.unsplash.com/photo-1542382257-80dedb725088?q=80&w=800&auto=format&fit=crop" alt="Realism Wolf" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-gold uppercase tracking-widest mb-1">Realism • Kaelen Voss</span>
+                        <h3 class="text-2xl font-serif font-bold text-white">Apex Predator Portrait</h3>
+                        <p class="text-xs text-gray-300 mt-2">Click to inspect high-resolution details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Spotlight Section -->
+    <section id="artists" class="py-28 px-6 bg-charcoal relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs tracking-widest text-gold uppercase block mb-3 font-semibold">Resident Visionaries</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white tracking-tight mb-4">THE ARTISTS</h2>
+                <p class="text-gray-400 text-sm">Each resident artist brings distinct mastery, years of rigorous apprenticeship, and international award recognition.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Artist 1 -->
+                <div class="glass-card p-6 rounded-sm group">
+                    <div class="aspect-[3/4] overflow-hidden mb-6 rounded-sm relative">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" alt="Kaelen Voss" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-charcoal/85 backdrop-blur-md px-3 py-1 text-[10px] tracking-widest uppercase text-gold border border-gold/30">
+                            Realism Lead
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-white mb-1">Kaelen Voss</h3>
+                    <p class="text-xs text-gold uppercase tracking-widest mb-4">Surrealism & Dark Realism</p>
+                    <p class="text-gray-400 text-sm font-light mb-6">Over 10 years mastering hyper-detailed textures, photographic depth, and dramatic cinematic lighting on skin.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span class="text-xs text-gray-500">Instagram: @kaelenvoss_ink</span>
+                        <a href="#booking" class="text-xs text-gold uppercase tracking-widest font-medium hover:underline">Book Artist →</a>
+                    </div>
+                </div>
+
+                <!-- Artist 2 -->
+                <div class="glass-card p-6 rounded-sm group">
+                    <div class="aspect-[3/4] overflow-hidden mb-6 rounded-sm relative">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" alt="Sora Vance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-charcoal/85 backdrop-blur-md px-3 py-1 text-[10px] tracking-widest uppercase text-gold border border-gold/30">
+                            Blackwork Master
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-white mb-1">Sora Vance</h3>
+                    <p class="text-xs text-gold uppercase tracking-widest mb-4">Geometric & Brutalist Blackwork</p>
+                    <p class="text-gray-400 text-sm font-light mb-6">Specializing in massive scale body architecture, heavy black saturation, and hypnotic geometric patterns.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span class="text-xs text-gray-500">Instagram: @soravance.black</span>
+                        <a href="#booking" class="text-xs text-gold uppercase tracking-widest font-medium hover:underline">Book Artist →</a>
+                    </div>
+                </div>
+
+                <!-- Artist 3 -->
+                <div class="glass-card p-6 rounded-sm group">
+                    <div class="aspect-[3/4] overflow-hidden mb-6 rounded-sm relative">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop" alt="Elena Rostova" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-charcoal/85 backdrop-blur-md px-3 py-1 text-[10px] tracking-widest uppercase text-gold border border-gold/30">
+                            Fine Line Expert
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-white mb-1">Elena Rostova</h3>
+                    <p class="text-xs text-gold uppercase tracking-widest mb-4">Fine Line & Micro Botanical</p>
+                    <p class="text-gray-400 text-sm font-light mb-6">Renowned for razor-sharp single-needle linework, ethereal botanical compositions, and delicate scripture.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span class="text-xs text-gray-500">Instagram: @elena.fineline</span>
+                        <a href="#booking" class="text-xs text-gold uppercase tracking-widest font-medium hover:underline">Book Artist →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Booking & Consultation Wizard -->
+    <section id="booking" class="py-28 px-6 bg-[#0e0e0e] relative border-y border-white/10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs tracking-widest text-gold uppercase block mb-3 font-semibold">Secure Your Session</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white tracking-tight mb-4">CONSULTATION WIZARD</h2>
+                <p class="text-gray-400 text-sm">Fill out our interactive booking protocol below. Our studio manager will review your submission within 24 hours.</p>
+            </div>
+
+            <!-- Wizard Container -->
+            <div class="glass-card p-8 md:p-12 rounded-sm relative overflow-hidden">
+                
+                <!-- Progress Indicator -->
+                <div class="flex items-center justify-between mb-10 pb-6 border-b border-white/10">
+                    <div class="flex items-center gap-2">
+                        <div id="step-indicator-1" class="w-8 h-8 rounded-full bg-gold text-charcoal font-bold text-xs flex items-center justify-center">1</div>
+                        <span class="text-xs uppercase tracking-wider text-white hidden sm:inline">Style & Size</span>
+                    </div>
+                    <div class="w-12 h-[1px] bg-white/20"></div>
+                    <div class="flex items-center gap-2">
+                        <div id="step-indicator-2" class="w-8 h-8 rounded-full bg-white/10 text-gray-400 font-bold text-xs flex items-center justify-center">2</div>
+                        <span class="text-xs uppercase tracking-wider text-gray-400 hidden sm:inline">Placement & Ref</span>
+                    </div>
+                    <div class="w-12 h-[1px] bg-white/20"></div>
+                    <div class="flex items-center gap-2">
+                        <div id="step-indicator-3" class="w-8 h-8 rounded-full bg-white/10 text-gray-400 font-bold text-xs flex items-center justify-center">3</div>
+                        <span class="text-xs uppercase tracking-wider text-gray-400 hidden sm:inline">Artist & Date</span>
+                    </div>
+                </div>
+
+                <!-- Wizard Form -->
+                <form id="consultation-form" onsubmit="event.preventDefault();">
+                    
+                    <!-- STEP 1: Style & Size -->
+                    <div class="wizard-step" data-step="1">
+                        <h3 class="text-xl font-serif font-bold text-white mb-6">Select Tattoo Style & Estimated Scale</h3>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                            <label class="cursor-pointer glass-card p-5 rounded-sm border border-white/10 hover:border-gold transition-all flex flex-col items-center text-center group select-style">
+                                <input type="radio" name="style" value="realism" class="hidden" required>
+                                <i class="fa-solid fa-eye text-2xl text-gold mb-3 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm font-semibold text-white">Realism</span>
+                            </label>
+                            <label class="cursor-pointer glass-card p-5 rounded-sm border border-white/10 hover:border-gold transition-all flex flex-col items-center text-center group select-style">
+                                <input type="radio" name="style" value="blackwork" class="hidden">
+                                <i class="fa-solid fa-feather text-2xl text-gold mb-3 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm font-semibold text-white">Blackwork</span>
+                            </label>
+                            <label class="cursor-pointer glass-card p-5 rounded-sm border border-white/10 hover:border-gold transition-all flex flex-col items-center text-center group select-style">
+                                <input type="radio" name="style" value="fineline" class="hidden">
+                                <i class="fa-solid fa-pencil text-2xl text-gold mb-3 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm font-semibold text-white">Fine Line</span>
+                            </label>
+                            <label class="cursor-pointer glass-card p-5 rounded-sm border border-white/10 hover:border-gold transition-all flex flex-col items-center text-center group select-style">
+                                <input type="radio" name="style" value="neotraditional" class="hidden">
+                                <i class="fa-solid fa-gem text-2xl text-gold mb-3 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm font-semibold text-white">Neo-Trad</span>
+                            </label>
+                        </div>
+
+                        <label class="block text-xs uppercase tracking-widest text-gray-300 mb-2">Estimated Size (Inches)</label>
+                        <select name="size" class="w-full bg-charcoal border border-white/20 rounded-sm p-4 text-sm text-white focus:outline-none focus:border-gold mb-8">
+                            <option value="small">Small (2" - 4" / Micro piece)</option>
+                            <option value="medium">Medium (5" - 8" / Half forearm or calf)</option>
+                            <option value="large">Large (Full sleeve, backpiece, thigh panel)</option>
+                            <option value="multi">Multi-Session Custom Project</option>
+                        </select>
+
+                        <div class="flex justify-end">
+                            <button type="button" onclick="nextStep(2)" class="px-8 py-3.5 bg-gold text-charcoal font-semibold text-xs tracking-widest uppercase hover:bg-goldhover transition-all rounded-sm">
+                                Next Step →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Placement & Reference -->
+                    <div class="wizard-step hidden" data-step="2">
+                        <h3 class="text-xl font-serif font-bold text-white mb-6">Body Placement & Reference Material</h3>
+                        
+                        <div class="mb-6">
+                            <label class="block text-xs uppercase tracking-widest text-gray-300 mb-2">Target Body Placement</label>
+                            <input type="text" name="placement" placeholder="e.g. Outer left forearm, upper back, ribs..." class="w-full bg-charcoal border border-white/20 rounded-sm p-4 text-sm text-white focus:outline-none focus:border-gold" required>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-xs uppercase tracking-widest text-gray-300 mb-2">Concept Description & Details</label>
+                            <textarea name="description" rows="4" placeholder="Describe your vision, subject matter, mood, color palette or black & grey preference..." class="w-full bg-charcoal border border-white/20 rounded-sm p-4 text-sm text-white focus:outline-none focus:border-gold" required></textarea>
+                        </div>
+
+                        <div class="mb-8 border-2 border-dashed border-white/20 rounded-sm p-8 text-center hover:border-gold transition-colors cursor-pointer">
+                            <i class="fa-solid fa-cloud-arrow-up text-3xl text-gold mb-2"></i>
+                            <p class="text-sm font-medium text-white mb-1">Upload Reference Images (Optional)</p>
+                            <p class="text-xs text-gray-400">Drag & drop inspirational photos or mood boards here</p>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <button type="button" onclick="prevStep(1)" class="px-8 py-3.5 border border-white/20 text-white font-medium text-xs tracking-widest uppercase hover:border-gold transition-all rounded-sm">
+                                ← Back
+                            </button>
+                            <button type="button" onclick="nextStep(3)" class="px-8 py-3.5 bg-gold text-charcoal font-semibold text-xs tracking-widest uppercase hover:bg-goldhover transition-all rounded-sm">
+                                Next Step →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Artist & Date -->
+                    <div class="wizard-step hidden" data-step="3">
+                        <h3 class="text-xl font-serif font-bold text-white mb-6">Preferred Artist & Consultation Date</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <label class="cursor-pointer glass-card p-4 rounded-sm border border-white/10 hover:border-gold transition-all flex items-center gap-4">
+                                <input type="radio" name="artist" value="kaelen" class="text-gold focus:ring-gold" required>
+                                <div>
+                                    <div class="text-sm font-bold text-white">Kaelen Voss</div>
+                                    <div class="text-[10px] text-gold uppercase tracking-wider">Realism</div>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer glass-card p-4 rounded-sm border border-white/10 hover:border-gold transition-all flex items-center gap-4">
+                                <input type="radio" name="artist" value="sora" class="text-gold focus:ring-gold">
+                                <div>
+                                    <div class="text-sm font-bold text-white">Sora Vance</div>
+                                    <div class="text-[10px] text-gold uppercase tracking-wider">Blackwork</div>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer glass-card p-4 rounded-sm border border-white/10 hover:border-gold transition-all flex items-center gap-4">
+                                <input type="radio" name="artist" value="elena" class="text-gold focus:ring-gold">
+                                <div>
+                                    <div class="text-sm font-bold text-white">Elena Rostova</div>
+                                    <div class="text-[10px] text-gold uppercase tracking-wider">Fine Line</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-gray-300 mb-2">Preferred Date</label>
+                                <input type="date" name="date" class="w-full bg-charcoal border border-white/20 rounded-sm p-4 text-sm text-white focus:outline-none focus:border-gold" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-gray-300 mb-2">Your Full Name & Contact</label>
+                                <input type="text" name="client_name" placeholder="Name, Email & Phone Number" class="w-full bg-charcoal border border-white/20 rounded-sm p-4 text-sm text-white focus:outline-none focus:border-gold" required>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <button type="button" onclick="prevStep(2)" class="px-8 py-3.5 border border-white/20 text-white font-medium text-xs tracking-widest uppercase hover:border-gold transition-all rounded-sm">
+                                ← Back
+                            </button>
+                            <button type="submit" onclick="submitBooking(event)" class="px-8 py-3.5 bg-gold text-charcoal font-semibold text-xs tracking-widest uppercase hover:bg-goldhover transition-all rounded-sm shadow-xl shadow-gold/20">
+                                Submit Request
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- Success Confirmation State (Hidden by default) -->
+                <div id="booking-success" class="hidden text-center py-12">
+                    <div class="w-16 h-16 rounded-full bg-gold/20 border border-gold text-gold flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-white mb-3">Consultation Request Received</h3>
+                    <p class="text-gray-300 max-w-md mx-auto text-sm mb-8">Thank you. Your dossier has been securely dispatched to our studio coordinator. We will reach out via email/phone within 24 hours.</p>
+                    <button onclick="resetWizard()" class="px-8 py-3 border border-gold text-gold font-medium text-xs tracking-widest uppercase hover:bg-gold hover:text-charcoal transition-all rounded-sm">
+                        Submit Another Request
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Aftercare & FAQ Section -->
+    <section id="aftercare" class="py-28 px-6 bg-charcoal relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs tracking-widest text-gold uppercase block mb-3 font-semibold">Knowledge Base</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white tracking-tight mb-4">AFTERCARE & STUDIO FAQ</h2>
+                <p class="text-gray-400 text-sm">Everything you need to know about preparing for your session, pricing policies, and preserving your ink.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Accordion Item 1 -->
+                <div class="glass-card rounded-sm overflow-hidden border border-white/10">
+                    <button class="accordion-toggle w-full p-6 text-left flex items-center justify-between text-white font-serif font-bold text-lg hover:text-gold transition-colors">
+                        <span>What is your studio pricing and deposit policy?</span>
+                        <i class="fa-solid fa-plus text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6 text-gray-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                        Our resident artists charge a standard day-rate of $1,200 to $1,800 depending on complexity, or $200/hr for smaller bespoke sessions. A non-refundable retainer deposit of $200 is required upon booking to secure your date and initiate custom design drawings. This deposit is credited directly towards the final session fee.
+                    </div>
+                </div>
+
+                <!-- Accordion Item 2 -->
+                <div class="glass-card rounded-sm overflow-hidden border border-white/10">
+                    <button class="accordion-toggle w-full p-6 text-left flex items-center justify-between text-white font-serif font-bold text-lg hover:text-gold transition-colors">
+                        <span>How should I prepare for my tattoo appointment?</span>
+                        <i class="fa-solid fa-plus text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6 text-gray-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                        Get a solid night's sleep, eat a substantial meal 1 hour prior to your appointment, and stay well hydrated. Avoid alcohol and blood thinners for 24 hours prior. Wear comfortable, dark clothing that allows easy access to the tattoo placement area.
+                    </div>
+                </div>
+
+                <!-- Accordion Item 3 -->
+                <div class="glass-card rounded-sm overflow-hidden border border-white/10">
+                    <button class="accordion-toggle w-full p-6 text-left flex items-center justify-between text-white font-serif font-bold text-lg hover:text-gold transition-colors">
+                        <span>Step-by-Step Healing & Aftercare Instructions</span>
+                        <i class="fa-solid fa-plus text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6 text-gray-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                        1. Leave protective second skin bandage on for 3 to 5 days.<br>
+                        2. Once removed, gently wash the tattoo twice daily with lukewarm water and antibacterial fragrance-free soap.<br>
+                        3. Pat dry with a clean paper towel (never cloth towels).<br>
+                        4. Apply a microscopic layer of recommended aftercare balm (e.g., Hustle Butter) 2-3 times daily. Do not oversaturate.<br>
+                        5. Avoid direct sunlight, swimming pools, baths, and picking at peeling skin for at least 3 weeks.
+                    </div>
+                </div>
+
+                <!-- Accordion Item 4 -->
+                <div class="glass-card rounded-sm overflow-hidden border border-white/10">
+                    <button class="accordion-toggle w-full p-6 text-left flex items-center justify-between text-white font-serif font-bold text-lg hover:text-gold transition-colors">
+                        <span>Are touch-ups included if needed?</span>
+                        <i class="fa-solid fa-plus text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6 text-gray-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                        Yes! We offer one complimentary touch-up within 6 months of your completed session if any minor settling occurs during the healing process (excludes hands, feet, and elbows where touch-ups may incur standard hourly fees).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="py-28 px-6 bg-[#0e0e0e] relative border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs tracking-widest text-gold uppercase block mb-3 font-semibold">Private Sanctuary</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-white tracking-tight mb-6">STUDIO LOCATION & HOURS</h2>
+                    <p class="text-gray-400 text-sm font-light mb-8 leading-relaxed">
+                        Located in the heart of the arts district, our private studio is designed as an architectural sanctuary ensuring total privacy, serenity, and uncompromised focus for every client.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-sm bg-gold/10 border border-gold/30 text-gold flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-serif font-bold text-base">Address</h4>
+                                <p class="text-gray-400 text-sm">450 S. Western Ave, Suite 300<br>Los Angeles, CA 90020</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-sm bg-gold/10 border border-gold/30 text-gold flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-serif font-bold text-base">Operating Hours</h4>
+                                <p class="text-gray-400 text-sm">Wednesday – Sunday: 11:00 AM – 8:00 PM<br>Monday & Tuesday: Closed (Private Consults Only)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-sm bg-gold/10 border border-gold/30 text-gold flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-serif font-bold text-base">Direct Concierge</h4>
+                                <p class="text-gray-400 text-sm">concierge@inkandaura.com<br>+1 (310) 555-8921</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulated Studio Map / Aesthetic Visual Card -->
+                <div class="glass-card p-4 rounded-sm relative overflow-hidden aspect-[4/3] flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1598371839606-9185dcb8e123?q=80&w=1000&auto=format&fit=crop" alt="Studio Interior" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.25] contrast-125">
+                    <div class="relative z-10 text-center p-8 bg-charcoal/80 backdrop-blur-md border border-gold/30 max-w-md rounded-sm">
+                        <span class="text-xs uppercase tracking-widest text-gold block mb-2 font-semibold">Strictly By Appointment</span>
+                        <h3 class="text-2xl font-serif font-bold text-white mb-3">VISIT THE STUDIO</h3>
+                        <p class="text-xs text-gray-300 mb-6">To maintain a peaceful and uninterrupted artistic environment, walk-ins are not accommodated. Please schedule your consultation in advance.</p>
+                        <a href="#booking" class="inline-block px-6 py-3 bg-gold text-charcoal font-semibold text-xs tracking-widest uppercase hover:bg-goldhover transition-all rounded-sm">
+                            Book Consultation Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-charcoal/95 backdrop-blur-xl hidden flex items-center justify-center p-6">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-gold text-3xl focus:outline-none w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-[#1a1a1a] border border-gold/20 rounded-sm overflow-hidden p-6 md:p-8">
+            <div class="aspect-[4/5] overflow-hidden rounded-sm">
+                <img id="lightbox-img" src="" alt="Expanded Portfolio Item" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-6">
+                <div>
+                    <span id="lightbox-style" class="text-xs uppercase tracking-widest text-gold font-semibold block mb-1">Style</span>
+                    <h3 id="lightbox-title" class="text-3xl font-serif font-bold text-white mb-2">Title</h3>
+                    <p id="lightbox-artist" class="text-sm text-gray-400">By Artist</p>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed font-light">
+                    Every piece created at INK & AURA is custom-drawn specifically for the client's anatomy and skin tone. Using surgical-grade sterilized equipment and premium vegan pigments.
+                </p>
+                <div class="pt-4 border-t border-white/10 flex items-center gap-4">
+                    <a href="#booking" onclick="closeLightbox()" class="px-6 py-3 bg-gold text-charcoal font-semibold text-xs tracking-widest uppercase hover:bg-goldhover transition-all rounded-sm">
+                        Request Similar Design
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#090909] py-16 px-6 border-t border-white/10 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold font-serif font-bold text-lg">
+                    I&A
+                </div>
+                <span class="font-serif tracking-widest text-xl font-bold text-white">INK & AURA</span>
+            </div>
+            <p class="text-gray-400 text-xs tracking-widest uppercase max-w-md mx-auto mb-8 font-light">
+                Redefining the boundaries of high-end permanent body artistry. Los Angeles • Tokyo • Paris
+            </p>
+            <div class="flex items-center gap-6 text-gray-400 text-lg mb-8">
+                <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <p class="text-[10px] text-gray-600 tracking-wider uppercase">
+                &copy; 2026 INK & AURA Studio. All rights reserved. Designed for elite tattoo culture.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gallery Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-gold', 'text-charcoal', 'border-gold');
+                    b.classList.add('border-white/20', 'text-gray-300');
+                });
+                btn.classList.add('bg-gold', 'text-charcoal', 'border-gold');
+                btn.classList.remove('border-white/20', 'text-gray-300');
+
+                const filter = btn.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox functionality
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxArtist = document.getElementById('lightbox-artist');
+        const lightboxStyle = document.getElementById('lightbox-style');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img').src;
+                const title = item.getAttribute('data-title');
+                const artist = item.getAttribute('data-artist');
+                const style = item.getAttribute('data-style');
+
+                lightboxImg.src = img;
+                lightboxTitle.textContent = title;
+                lightboxArtist.textContent = `Primary Artist: ${artist}`;
+                lightboxStyle.textContent = style;
+                lightboxModal.classList.remove('hidden');
+            });
+        });
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+
+        // Multi-step Booking Wizard Navigation
+        let currentStep = 1;
+        function nextStep(step) {
+            document.querySelectorAll('.wizard-step').forEach(el => el.classList.add('hidden'));
+            document.querySelector(`.wizard-step[data-step="${step}"]`).classList.remove('hidden');
+            
+            // Update indicators
+            for(let i=1; i<=3; i++) {
+                const ind = document.getElementById(`step-indicator-${i}`);
+                if(i <= step) {
+                    ind.classList.remove('bg-white/10', 'text-gray-400');
+                    ind.classList.add('bg-gold', 'text-charcoal');
+                } else {
+                    ind.classList.add('bg-white/10', 'text-gray-400');
+                    ind.classList.remove('bg-gold', 'text-charcoal');
+                }
+            }
+            currentStep = step;
+        }
+
+        function prevStep(step) {
+            nextStep(step);
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+            document.getElementById('consultation-form').classList.add('hidden');
+            document.getElementById('booking-success').classList.remove('hidden');
+        }
+
+        function resetWizard() {
+            document.getElementById('consultation-form').reset();
+            document.getElementById('consultation-form').classList.remove('hidden');
+            document.getElementById('booking-success').classList.add('hidden');
+            nextStep(1);
+        }
+
+        // Accordion functionality for Aftercare & FAQ
+        const accordions = document.querySelectorAll('.accordion-toggle');
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                const content = acc.nextElementSibling;
+                const icon = acc.querySelector('i');
+                
+                // Toggle current
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-45');
+            });
+        });
+    </script>
+</body>
+</html>
